@@ -8,16 +8,15 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 
 public class DemoBot2 {
 
-    public DcMotor l1;
+    public DcMotor l1;                //hi
     public DcMotor l2;
     public DcMotor r1;
     public DcMotor r2;
 
     public final double ROTATIONS_TO_TICKS = 537.6;
     public final double INCHES_TO_ROTATIONS = 0.079577;
+
     public final double STRAFE_CONSTANT = 1.3;
-
-
 
 
     public void init(HardwareMap hwMap) {
@@ -47,6 +46,8 @@ public class DemoBot2 {
         l2.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         r1.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         r2.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+
+
         resetEncoders();
     }
 
@@ -64,9 +65,12 @@ public class DemoBot2 {
         r2.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
     }
 
+
     public void moveForwardUsingEncoder(double dis, double p){
 
         int ticks = (int)(dis*INCHES_TO_ROTATIONS*ROTATIONS_TO_TICKS);
+
+
         resetEncoders();
 
         l1.setTargetPosition(ticks);
@@ -79,11 +83,11 @@ public class DemoBot2 {
         r1.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         r2.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
-
-
         move(p,0,0);
 
-        while (l1.isBusy() || l2.isBusy() || r1.isBusy() || r2.isBusy()){}
+        while (l1.isBusy() || l2.isBusy() || r1.isBusy() || r2.isBusy()){
+
+        }
 
         move(0,0,0);
 
