@@ -17,7 +17,7 @@ public class DemoAuton extends LinearOpMode {
     @Override
     public void runOpMode() {
 
-        //bot.init(hardwareMap);
+        bot.init(hardwareMap);
 
         telemetry.addData("Status", "Ready");
         telemetry.update();
