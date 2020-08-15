@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 
 public class DemoBot2 {
 
-    public DcMotor l1;                //hi
+    public DcMotor l1;                //hi, THIS IS AKHIL'S CODE
     public DcMotor l2;
     public DcMotor r1;
     public DcMotor r2;
