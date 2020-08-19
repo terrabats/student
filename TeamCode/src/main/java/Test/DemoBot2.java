@@ -8,8 +8,6 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 
 public class DemoBot2 {
 
-
-    //hihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihivv
     public DcMotor l1;
     public DcMotor l2;
     public DcMotor r1;
@@ -99,6 +97,7 @@ public class DemoBot2 {
 
         int fticks = (int)(f*INCHES_TO_ROTATIONS*ROTATIONS_TO_TICKS);
         int sticks = (int)(s*INCHES_TO_ROTATIONS*ROTATIONS_TO_TICKS * STRAFE_CONSTANT);
+
         //sticks lol
         double totalDis = Math.sqrt((fticks*fticks)+(sticks*sticks));
 
