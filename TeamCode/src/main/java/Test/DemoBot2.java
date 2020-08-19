@@ -53,14 +53,14 @@ public class DemoBot2 {
         resetEncoders();
     }
 
-    public void move(double f, double s, double t){
-        l1.setPower(-f+s-t);
-        l2.setPower(f+s+t);
-        r1.setPower(-f-s+t);
-        r2.setPower(f-s-t);
+    public void move(double f, double s, double t) {
+        l1.setPower(-f + s - t);
+        l2.setPower(f + s + t);
+        r1.setPower(-f - s + t);
+        r2.setPower(f - s - t);
     }
 
-    public void resetEncoders(){
+    public void resetEncoders() {
         l1.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         l2.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         r1.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
@@ -68,9 +68,9 @@ public class DemoBot2 {
     }
 
 
-    public void moveForwardUsingEncoder(double dis, double p){
+    public void moveForwardUsingEncoder(double dis, double p) {
 
-        int ticks = (int)(dis*INCHES_TO_ROTATIONS*ROTATIONS_TO_TICKS);
+        int ticks = (int) (dis * INCHES_TO_ROTATIONS * ROTATIONS_TO_TICKS);
 
 
         resetEncoders();
@@ -85,14 +85,14 @@ public class DemoBot2 {
         r1.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         r2.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
-        move(p,0,0);
+        move(p, 0, 0);
 
-        while (l1.isBusy() || l2.isBusy() || r1.isBusy() || r2.isBusy()){
+        while (l1.isBusy() || l2.isBusy() || r1.isBusy() || r2.isBusy()) {
 
         }
 
-        move(0,0,0);
+        move(0, 0, 0);
 
     }
-//We just have to make a branch? That's it?
+    /////gu
 }
