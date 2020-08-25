@@ -108,7 +108,7 @@ public class DemoBot2 {
 
         resetEncoders();
 
-        //switch positions of runtopos and target position
+        //switch positions of run to pos and target position
 
         l1.setTargetPosition(fticks-sticks);
         l2.setTargetPosition(-fticks-sticks);
