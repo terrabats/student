@@ -2,16 +2,17 @@ package Test;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.hardware.GyroSensor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 
-public class DemoBot {
+public class DemoBot{
+
 
     public DcMotor l1;
     public DcMotor l2;
     public DcMotor r1;
     public DcMotor r2;
-
 
 
     public void init(HardwareMap hwMap) {
@@ -24,8 +25,7 @@ public class DemoBot {
         l1.setPower(0);
         l2.setPower(0);
         r1.setPower(0);
-        r2.setPower(0);
-
+        r2.setPower(1);
 
         l1.setDirection(DcMotorSimple.Direction.FORWARD);
         l2.setDirection(DcMotorSimple.Direction.REVERSE);
@@ -44,6 +44,7 @@ public class DemoBot {
 
     }
 
+    //f=forward, s=strafe, t=turn
     public void move(double f, double s, double t){
         l1.setPower(-f-s-t);
         l2.setPower(f-s+t);

@@ -10,8 +10,7 @@ import Util.CodeSeg;
 @TeleOp(name = "Demo TeleOp")
 public class DemoTeleOp extends OpMode {
 
-    DemoBot2 bot = new DemoBot2();
-
+    DemoBot bot = new DemoBot();
     ElapsedTime timer = new ElapsedTime();
 
     @Override
@@ -24,11 +23,11 @@ public class DemoTeleOp extends OpMode {
 
         telemetry.addData("Status: ","Ready");
         telemetry.update();
-
-        bot.l1.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        bot.l2.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        bot.r1.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        bot.r2.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+//
+//        bot.l1.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+//        bot.l2.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+//        bot.r1.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+//        bot.r2.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
 
     }
@@ -41,21 +40,20 @@ public class DemoTeleOp extends OpMode {
     @Override
     public void loop() {
 
-
-
+        telemetry.addData("time:", timer.seconds());
+        telemetry.update();
 
         double forward = -gamepad1.right_stick_y;
         double strafe = gamepad1.right_stick_x;
         double turn = -gamepad1.left_stick_x;
 
 
-        telemetry.addData("r1", bot.r1.getCurrentPosition());
-        telemetry.addData("r2", bot.r2.getCurrentPosition());
-        telemetry.addData("l1", bot.l1.getCurrentPosition());
-        telemetry.addData("l2", bot.l2.getCurrentPosition());
-        telemetry.update();
 
         bot.move(forward, strafe, turn);
+
+        bot.move(forward*0.5,strafe*0.5,turn*0.5);
+
+
 
 
     }

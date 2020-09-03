@@ -15,7 +15,6 @@ public class DemoBot2 {
 
     public final double ROTATIONS_TO_TICKS = 537.6;
     public final double INCHES_TO_ROTATIONS = 0.079577;
-
     public final double STRAFE_CONSTANT = 1.3;
 
 
@@ -51,12 +50,13 @@ public class DemoBot2 {
         resetEncoders();
     }
 
-    public void move(double f, double s, double t){
-        l1.setPower(-f+s-t);
-        l2.setPower(f+s+t);
-        r1.setPower(-f-s+t);
-        r2.setPower(f-s-t);
+    public void move(double f, double s, double t) {
+        l1.setPower(-f + s - t);
+        l2.setPower(f + s + t);
+        r1.setPower(-f - s + t);
+        r2.setPower(f - s - t);
     }
+
 
     public void resetEncoders(){
         l1.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
@@ -69,7 +69,6 @@ public class DemoBot2 {
     public void moveForwardUsingEncoder(double dis, double p){
 
         int ticks = (int)(dis*INCHES_TO_ROTATIONS*ROTATIONS_TO_TICKS);
-
 
         resetEncoders();
 
@@ -123,8 +122,8 @@ public class DemoBot2 {
         //Just in case
         p = Math.abs(p);
 
-
         move(p*(fticks/totalDis),p*(sticks/totalDis),0);
+
         while (l1.isBusy() || l2.isBusy() || r1.isBusy() || r2.isBusy()){
 
         }

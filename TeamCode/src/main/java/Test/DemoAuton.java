@@ -11,7 +11,6 @@ import Util.CodeSeg;
 public class DemoAuton extends LinearOpMode {
 
     DemoBot2 bot = new DemoBot2();
-
     ElapsedTime timer = new ElapsedTime();
 
     @Override
@@ -24,12 +23,8 @@ public class DemoAuton extends LinearOpMode {
 
 
         waitForStart();
-
-//        bot.moveDis(10, 10, 0.8);
-//        bot.moveDis(-10, 10, 0.8);
-//        bot.moveDis(-10, -10, 0.8);
-//        bot.moveDis(10, -10, 0.8);
-
+        bot.moveForwardUsingEncoder(10,0.5);
+        bot.moveForwardUsingEncoder(-10,0.2);
     }
 
 }
