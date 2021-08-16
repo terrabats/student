@@ -10,7 +10,7 @@ public class TerraOp extends OpMode {
     // Create a TerraBot object
     TerraBot bot = new TerraBot();
 
-    //Put it over here
+    boolean fastmode = false;
 
     @Override
     public void init() {
@@ -38,7 +38,6 @@ public class TerraOp extends OpMode {
         // Otherwise make the robot move at half speed
 
         //Dont put this here otherwise it will always set fastmode to false put it outside of the loop method like at the top or something
-        boolean fastmode = false;
         if(gamepad1.y) {
             fastmode = !fastmode;
         }
