@@ -29,5 +29,10 @@ public class TerraOp extends OpMode {
         // HINT
         // use gamepad1.right_stick_y to get the y value of the right stick
 
+        // TODO
+        // Make a boolean called fastmode and set it to false
+        // Then add code that toggles fastmode based on gamepad.y
+        // Finally if the robot is in fastmode move normally
+        // Otherwise make the robot move at half speed
     }
 }
