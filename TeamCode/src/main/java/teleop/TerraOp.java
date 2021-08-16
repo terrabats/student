@@ -41,7 +41,11 @@ public class TerraOp extends OpMode {
         {
             //Add semicolon
             //and you also have to figure out how to toggle it
-            fastmode = true
+            fastmode = true;
+        }
+        else
+        {
+            fastmode = false;
         }
         //Dont need == true
         if(fastmode == true)
