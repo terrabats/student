@@ -41,6 +41,7 @@ public class TerraBot {
         lb.setPower(forward-strafe+turn);
         rf.setPower(-forward+strafe+turn);
         rb.setPower(-forward-strafe-turn);
+        //hello?
     }
 }
 
