@@ -35,15 +35,14 @@ public class TerraOp extends OpMode {
         // Finally if the robot is in fastmode move normally
         // Otherwise make the robot move at half speed
 
-        //Dont put this hear otherwise it will always set fastmode to false put it outside of the loop method like at the top or something
+        //Dont put this here otherwise it will always set fastmode to false put it outside of the loop method like at the top or something
         boolean fastmode = false;
         if(gamepad1.y) {
             //Add semicolon
             //and you also have to figure out how to toggle it
             fastmode = !fastmode;
         }
-        //Dont need == true
-        if(fastmode == true)
+        if(fastmode)
         {
             bot.move(-gamepad1.right_stick_y, gamepad1.right_stick_x, gamepad1.left_stick_x);
         }
