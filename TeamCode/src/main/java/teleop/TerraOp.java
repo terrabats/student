@@ -28,7 +28,11 @@ public class TerraOp extends OpMode {
         // The right stick of gamepad 1 should translate the robot
         // HINT
         // use gamepad1.right_stick_y to get the y value of the right stick
-        bot.move(-gamepad1.right_stick_y,gamepad1.right_stick_x,gamepad1.left_stick_x );
+
+        // TODO
+        // Make a boolean called fastmode and set it to false
+        // Then add code that toggles fastmode based on gamepad.y
+        // Finally if the robot is in fastmode move normally
+        // Otherwise make the robot move at half speed
     }
 }
-
