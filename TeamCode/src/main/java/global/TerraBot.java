@@ -29,19 +29,18 @@ public class TerraBot {
         return motor;
     }
 
-    public void move(double forward, double strafe, double turn){
-        // TODO
+    public void move(double forward, double strafe, double turn) {
         // This method has to move the robot at a certain power in three different types of motion
         // forward is forward (+) and backward (-)
         // strafe is right (+) and left (-)
         // turn is turn clockwise (+) and turn anticlockwise (-)
         // HINT
         // use rf.setPower(0.5) to set the right front motor to 0.5 power
-        lf.setPower(forward+strafe-turn);
-        lb.setPower(forward-strafe+turn);
-        rf.setPower(-forward+strafe+turn);
-        rb.setPower(-forward-strafe-turn);
-        //hello?
+        lf.setPower(forward + strafe - turn);
+        lb.setPower(forward - strafe + turn);
+        rf.setPower(-forward + strafe + turn);
+        rb.setPower(-forward - strafe - turn);
+        // This is correct
     }
 }
 
