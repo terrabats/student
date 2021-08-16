@@ -10,6 +10,8 @@ public class TerraOp extends OpMode {
     // Create a TerraBot object
     TerraBot bot = new TerraBot();
 
+    //Put it over here
+
     @Override
     public void init() {
         telemetry.addData("Ready?", "No."); // Is the robot ready?
@@ -38,8 +40,6 @@ public class TerraOp extends OpMode {
         //Dont put this here otherwise it will always set fastmode to false put it outside of the loop method like at the top or something
         boolean fastmode = false;
         if(gamepad1.y) {
-            //Add semicolon
-            //and you also have to figure out how to toggle it
             fastmode = !fastmode;
         }
         if(fastmode)
