@@ -37,15 +37,10 @@ public class TerraOp extends OpMode {
 
         //Dont put this hear otherwise it will always set fastmode to false put it outside of the loop method like at the top or something
         boolean fastmode = false;
-        if(gamepad1.y)
-        {
+        if(gamepad1.y) {
             //Add semicolon
             //and you also have to figure out how to toggle it
-            fastmode = true;
-        }
-        else
-        {
-            fastmode = false;
+            fastmode = !fastmode;
         }
         //Dont need == true
         if(fastmode == true)
