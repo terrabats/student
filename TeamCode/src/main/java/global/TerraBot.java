@@ -37,9 +37,10 @@ public class TerraBot {
         // turn is turn clockwise (+) and turn anticlockwise (-)
         // HINT
         // use rf.setPower(0.5) to set the right front motor to 0.5 power
-
+        lf.setPower(forward+strafe-turn);
+        lb.setPower(forward-strafe+turn);
+        rf.setPower(-forward+strafe+turn);
+        rb.setPower(-forward-strafe-turn);
     }
-
-
-
 }
+
