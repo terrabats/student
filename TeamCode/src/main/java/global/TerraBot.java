@@ -11,6 +11,8 @@ public class TerraBot {
     public DcMotor rf; // Right Front
     public DcMotor rb; // Right Back
 
+    public boolean fastmode = false;
+
     // Initialization method, defines motors
     public void init(HardwareMap hwMap) {
         // Get all 4 motors in mechanum drivetrain
@@ -36,6 +38,12 @@ public class TerraBot {
         // turn is turn clockwise (+) and turn anticlockwise (-)
         // HINT
         // use rf.setPower(0.5) to set the right front motor to 0.5 power
+
+        if (!fastmode) {
+            forward *= 0.5;
+            strafe *= 0.5;
+            turn *= 0.5;
+        }
 
         lf.setPower(forward + strafe - turn);
         rf.setPower(-forward + strafe + turn);

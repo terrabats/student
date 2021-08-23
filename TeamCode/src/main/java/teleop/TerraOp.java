@@ -29,5 +29,9 @@ public class TerraOp extends OpMode {
         // HINT
         // use gamepad1.right_stick_y to get the y value of the right stick
         bot.move(-gamepad1.right_stick_y, gamepad1.right_stick_x,  gamepad1.left_stick_x);
+
+        if (gamepad1.y) {
+            bot.fastmode = !bot.fastmode;
+        }
     }
 }
