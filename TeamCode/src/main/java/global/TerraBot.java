@@ -3,23 +3,21 @@ package global;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.Servo;
 
 public class TerraBot {
 
-    public DcMotor lf; // Left Front
-    public DcMotor lb; // Left Back
-    public DcMotor rf; // Right Front
-    public DcMotor rb; // Right Back
+    public DcMotor arm;
+    public Servo lift;
 
     // Initialization method, defines motors
     public void init(HardwareMap hwMap) {
         // Get all 4 motors in mechanum drivetrain
-        lf = getMotor(hwMap, "lf", DcMotorSimple.Direction.FORWARD, DcMotor.ZeroPowerBehavior.BRAKE, DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        lb = getMotor(hwMap, "lb", DcMotorSimple.Direction.REVERSE, DcMotor.ZeroPowerBehavior.BRAKE, DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        rf = getMotor(hwMap, "rf", DcMotorSimple.Direction.REVERSE, DcMotor.ZeroPowerBehavior.BRAKE, DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        rb = getMotor(hwMap, "rb", DcMotorSimple.Direction.FORWARD, DcMotor.ZeroPowerBehavior.BRAKE, DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        arm = getMotor(hwMap, "lf", DcMotorSimple.Direction.FORWARD, DcMotor.ZeroPowerBehavior.BRAKE, DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        lift = getServo(hwMap, "lb", Servo.Direction.REVERSE, 0.5);
+
+
     }
-    // getMotor returns a DcMotor with the specified settings
     public DcMotor getMotor(HardwareMap hwMap, String name, DcMotor.Direction dir, DcMotor.ZeroPowerBehavior zpb, DcMotor.RunMode mode){
         DcMotor motor = hwMap.get(DcMotor.class, name); // Get the motor from the hardware map
         motor.setPower(0); // Set the power to 0 initially
@@ -29,20 +27,16 @@ public class TerraBot {
         return motor;
     }
 
-    public void move(double forward, double strafe, double turn){
-        // TODO
-        // This method has to move the robot at a certain power in three different types of motion
-        // forward is forward (+) and backward (-)
-        // strafe is right (+) and left (-)
-        // turn is turn clockwise (+) and turn anticlockwise (-)
-        // HINT
-        // use rf.setPower(0.5) to set the right front motor to 0.5 power
-        lf.setPower(forward+strafe-turn);
-        lb.setPower(forward-strafe+turn);
-        rf.setPower(-forward+strafe+turn);
-        rb.setPower(-forward-strafe-turn);
+    public Servo getServo(HardwareMap hwMap, String name, Servo.Direction dir, double spos){
+        Servo servo = hwMap.get(Servo.class, name);
+        servo.setDirection(dir);
+        servo.setPosition(spos);
+        return servo;
     }
-
-
-
+    public void movearm(double p){
+        arm.setPower(p);
+    }
+    public void lift(double p){
+        lift.setPosition(p);
+    }
 }

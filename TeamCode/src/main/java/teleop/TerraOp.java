@@ -3,8 +3,6 @@ package teleop;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-import global.TerraBot;
-
 @TeleOp(name = "TerraOp")
 public class TerraOp extends OpMode {
     // Create a TerraBot object

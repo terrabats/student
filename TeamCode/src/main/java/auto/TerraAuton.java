@@ -4,8 +4,6 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-import global.TerraBot;
-
 @Autonomous(name = "TerraAuton")
 public class TerraAuton extends LinearOpMode {
 
