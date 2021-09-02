@@ -3,6 +3,8 @@ package teleop;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
+import global.TerraBot;
+
 @TeleOp(name = "TerraOp")
 public class TerraOp extends OpMode {
     // Create a TerraBot object
@@ -46,5 +48,6 @@ public class TerraOp extends OpMode {
         {
             bot.move(-gamepad1.right_stick_y/2, gamepad1.right_stick_x/2, gamepad1.left_stick_x/2);
         }
+
     }
 }

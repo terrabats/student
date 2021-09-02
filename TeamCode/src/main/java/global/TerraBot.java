@@ -1,5 +1,6 @@
 package global;
 
+import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
@@ -8,14 +9,13 @@ import com.qualcomm.robotcore.hardware.Servo;
 public class TerraBot {
 
     public DcMotor arm;
-    public Servo lift;
+    public CRServo lift;
 
     // Initialization method, defines motors
     public void init(HardwareMap hwMap) {
         // Get all 4 motors in mechanum drivetrain
-        arm = getMotor(hwMap, "lf", DcMotorSimple.Direction.FORWARD, DcMotor.ZeroPowerBehavior.BRAKE, DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        lift = getServo(hwMap, "lb", Servo.Direction.REVERSE, 0.5);
-
+        arm = getMotor(hwMap, "arm", DcMotorSimple.Direction.FORWARD, DcMotor.ZeroPowerBehavior.BRAKE, DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        lift = getCRServo(hwMap, "lift", CRServo.Direction.REVERSE);
 
     }
     public DcMotor getMotor(HardwareMap hwMap, String name, DcMotor.Direction dir, DcMotor.ZeroPowerBehavior zpb, DcMotor.RunMode mode){
@@ -27,16 +27,16 @@ public class TerraBot {
         return motor;
     }
 
-    public Servo getServo(HardwareMap hwMap, String name, Servo.Direction dir, double spos){
-        Servo servo = hwMap.get(Servo.class, name);
-        servo.setDirection(dir);
-        servo.setPosition(spos);
-        return servo;
+    public CRServo getCRServo(HardwareMap hwMap, String name, CRServo.Direction dir){
+        CRServo crServo = hwMap.get(CRServo.class, name);
+        crServo.setPower(0);
+        crServo.setDirection(dir);
+        return crServo;
     }
-    public void movearm(double p){
+    public void moveArm(double p){
         arm.setPower(p);
     }
     public void lift(double p){
-        lift.setPosition(p);
+        lift.setPower(p);
     }
 }
