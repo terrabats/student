@@ -24,30 +24,19 @@ public class TerraOp extends OpMode {
     @Override
     public void loop() {
 
-        // This method has to connect the controllers to the movement of the robot
-        // A gamepad is a controller
-        // The left stick of gamepad 1 should turn the robot
-        // The right stick of gamepad 1 should translate the robot
-        // HINT
-        // use gamepad1.right_stick_y to get the y value of the right stick
-
-        // TODO
-        // Make a boolean called fastmode and set it to false
-        // Then add code that toggles fastmode based on gamepad.y
-        // Finally if the robot is in fastmode move normally
-        // Otherwise make the robot move at half speed
-
         if(gamepad1.y) {
             fastmode = !fastmode;
         }
         if(fastmode)
         {
-            bot.move(-gamepad1.right_stick_y, gamepad1.right_stick_x, gamepad1.left_stick_x);
+            //bot.move(-gamepad1.right_stick_y, gamepad1.right_stick_x, gamepad1.left_stick_x);
         }
         else
         {
-            bot.move(-gamepad1.right_stick_y/2, gamepad1.right_stick_x/2, gamepad1.left_stick_x/2);
+            //bot.move(-gamepad1.right_stick_y/2, gamepad1.right_stick_x/2, gamepad1.left_stick_x/2);
         }
+        bot.moveArm(-gamepad1.right_stick_y);
+        bot.lift(-gamepad1.left_stick_y);
 
     }
 }
