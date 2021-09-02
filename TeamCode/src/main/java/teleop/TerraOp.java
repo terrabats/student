@@ -37,7 +37,6 @@ public class TerraOp extends OpMode {
         // Finally if the robot is in fastmode move normally
         // Otherwise make the robot move at half speed
 
-        //Dont put this here otherwise it will always set fastmode to false put it outside of the loop method like at the top or something
         if(gamepad1.y) {
             fastmode = !fastmode;
         }
